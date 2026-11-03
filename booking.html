@@ -1,0 +1,1515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trainhello | Online Bus Reservation &amp; Phone Booking Desk</title>
+  <meta name="description" content="Official telephone reservation assistance for nationwide intercity bus travel. Book express motorcoach seats, executive recliners, and overnight sleeper buses with 24/7 phone concierges.">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .lp-hero {
+      background: linear-gradient(135deg, #070D1E 0%, #0B132B 50%, #1C2541 100%);
+      padding: 3.5rem 0 4rem;
+      border-bottom: 4px solid var(--brand-orange);
+      position: relative;
+      overflow: hidden;
+    }
+    .lp-hero::before {
+      content: "";
+      position: absolute;
+      top: -100px;
+      right: -100px;
+      width: 480px;
+      height: 480px;
+      background: radial-gradient(circle, rgba(0, 73, 99, 0.18) 0%, rgba(0, 73, 99, 0) 70%);
+      pointer-events: none;
+    }
+    .lp-pill-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(0, 73, 99, 0.18);
+      border: 1px solid var(--brand-orange);
+      color: #67D4F8;
+      padding: 0.4rem 1.1rem;
+      border-radius: 9999px;
+      font-size: 0.85rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 1.25rem;
+    }
+    .lp-features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2.5rem;
+    }
+    .lp-feature-box {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: var(--radius-md);
+      padding: 1.5rem;
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+      transition: var(--transition-normal);
+    }
+    .lp-feature-box:hover {
+      border-color: var(--brand-orange);
+      background: rgba(255, 255, 255, 0.08);
+      transform: translateY(-3px);
+    }
+    .lp-feature-icon {
+      background: var(--brand-orange);
+      color: #FFFFFF;
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-weight: 900;
+    }
+    .lp-info-card {
+      background: #FFFFFF;
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-lg);
+      padding: 2.2rem;
+      box-shadow: var(--shadow-md);
+      margin-bottom: 2rem;
+    }
+    .lp-info-title {
+      font-size: 1.45rem;
+      font-weight: 800;
+      color: var(--brand-navy);
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .lp-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1rem;
+    }
+    .lp-table th, .lp-table td {
+      padding: 0.95rem 1rem;
+      text-align: left;
+      border-bottom: 1px solid var(--border-light);
+      font-size: 0.92rem;
+    }
+    .lp-table th {
+      background: #F1F5F9;
+      color: var(--brand-navy);
+      font-weight: 800;
+    }
+    .lp-table tr:hover {
+      background: #F8FAFC;
+    }
+    .lp-highlight-box {
+      background: var(--brand-orange-bg);
+      border-left: 4px solid var(--brand-orange);
+      padding: 1.25rem 1.5rem;
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+      margin: 1.5rem 0;
+      font-size: 0.95rem;
+      color: #9A3412;
+    }
+    .lp-cta-action-bar {
+      background: linear-gradient(135deg, #070D1E 0%, #141E38 100%);
+      border: 2px solid var(--brand-orange);
+      border-radius: var(--radius-lg);
+      padding: 2.5rem;
+      color: #FFFFFF;
+      text-align: center;
+      box-shadow: var(--shadow-xl);
+      margin: 3rem 0;
+    }
+    .lp-call-huge {
+      font-size: clamp(1.8rem, 3.5vw, 2.4rem);
+      font-family: 'Outfit', sans-serif;
+      font-weight: 900;
+      color: #67D4F8;
+      margin: 1rem 0 1.5rem;
+      letter-spacing: 0.5px;
+    }
+
+    /* ==========================================================================
+       Bus Seating Classes & Onboard Amenities (004963, White, Black Theme)
+       ========================================================================== */
+    .seating-luxe-section {
+      margin-bottom: 3.5rem;
+    }
+
+    .seating-luxe-header {
+      text-align: center;
+      max-width: 840px;
+      margin: 0 auto 2.5rem;
+    }
+
+    .seating-pill-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: #004963;
+      color: #FFFFFF;
+      padding: 0.45rem 1.35rem;
+      border-radius: 9999px;
+      font-size: 0.8rem;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+      box-shadow: 0 4px 14px rgba(0, 73, 99, 0.35);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+    }
+
+    .seating-title {
+      font-size: clamp(2rem, 3.8vw, 2.75rem);
+      color: #004963;
+      font-weight: 900;
+      margin-bottom: 0.85rem;
+      letter-spacing: -0.5px;
+    }
+
+    .seating-subtitle {
+      color: #475569;
+      font-size: clamp(0.98rem, 1.4vw, 1.12rem);
+      line-height: 1.65;
+    }
+
+    /* Category Filter Tabs */
+    .seating-filter-tabs {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.75rem;
+      margin-bottom: 2.5rem;
+      flex-wrap: wrap;
+    }
+
+    .seating-filter-btn {
+      background: #FFFFFF;
+      border: 1.5px solid #CBD5E1;
+      color: #0A0D12;
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.92rem;
+      font-weight: 800;
+      padding: 0.55rem 1.3rem;
+      border-radius: 9999px;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+    }
+
+    .seating-filter-btn:hover {
+      border-color: #004963;
+      color: #004963;
+      background: #F0F8FA;
+      transform: translateY(-2px);
+    }
+
+    .seating-filter-btn.active {
+      background: #004963;
+      border-color: #004963;
+      color: #FFFFFF;
+      box-shadow: 0 6px 20px rgba(0, 73, 99, 0.35);
+    }
+
+    /* 4-Column Responsive Seating Cards Grid */
+    .seating-cards-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.65rem;
+      margin-bottom: 3rem;
+    }
+
+    .seating-card {
+      background: #FFFFFF;
+      border: 1.5px solid #E2E8F0;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+
+    .seating-card:hover {
+      transform: translateY(-6px);
+      border-color: #004963;
+      box-shadow: 0 20px 40px rgba(0, 73, 99, 0.2);
+    }
+
+    .seating-card.hidden {
+      display: none !important;
+    }
+
+    .seating-card.featured-card {
+      border: 2.5px solid #004963;
+      box-shadow: 0 16px 36px rgba(0, 73, 99, 0.18);
+    }
+
+    .seating-featured-badge {
+      background: #004963;
+      color: #FFFFFF;
+      text-align: center;
+      padding: 0.45rem;
+      font-size: 0.75rem;
+      font-weight: 900;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.4rem;
+    }
+
+    .seating-card-media {
+      position: relative;
+      width: 100%;
+      height: 200px;
+      overflow: hidden;
+      background: #0A0D12;
+    }
+
+    .seating-card-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .seating-card:hover .seating-card-media img {
+      transform: scale(1.08);
+    }
+
+    .seating-media-badge {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      background: rgba(10, 13, 18, 0.9);
+      backdrop-filter: blur(8px);
+      color: #FFFFFF;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      padding: 0.3rem 0.8rem;
+      border-radius: 9999px;
+      font-size: 0.72rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    .seating-card-body {
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
+    .seating-card-title {
+      font-size: 1.35rem;
+      color: #0A0D12;
+      font-weight: 900;
+      margin-bottom: 0.35rem;
+    }
+
+    .seating-card-desc {
+      font-size: 0.88rem;
+      color: #64748B;
+      line-height: 1.5;
+      margin-bottom: 1.25rem;
+      min-height: 44px;
+    }
+
+    /* Ergonomics Meter in 004963 */
+    .seating-meter-box {
+      background: #F4F9FB;
+      border: 1px solid #D1E5ED;
+      border-radius: 12px;
+      padding: 0.85rem 1rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .seating-meter-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.78rem;
+      font-weight: 800;
+      color: #004963;
+      margin-bottom: 0.4rem;
+      text-transform: uppercase;
+    }
+
+    .seating-meter-val {
+      color: #0A0D12;
+      font-weight: 900;
+    }
+
+    .seating-meter-track {
+      width: 100%;
+      height: 6px;
+      background: #E2E8F0;
+      border-radius: 9999px;
+      overflow: hidden;
+    }
+
+    .seating-meter-fill {
+      height: 100%;
+      background: linear-gradient(90deg, #004963 0%, #0087B5 100%);
+      border-radius: 9999px;
+    }
+
+    /* Key Features List */
+    .seating-features-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.55rem;
+      margin-bottom: 1.5rem;
+      flex-grow: 1;
+    }
+
+    .seating-feature-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.6rem;
+      font-size: 0.85rem;
+      color: #1E293B;
+      line-height: 1.35;
+    }
+
+    .seating-check-icon {
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: #004963;
+      color: #FFFFFF;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.65rem;
+      font-weight: 900;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    /* Card Action Footer */
+    .seating-card-footer {
+      margin-top: auto;
+      border-top: 1px solid #E2E8F0;
+      padding-top: 1rem;
+    }
+
+    .seating-status-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.78rem;
+      margin-bottom: 0.75rem;
+      color: #475569;
+    }
+
+    .seating-status-row strong {
+      color: #004963;
+      font-weight: 800;
+    }
+
+    .btn-seating-book {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.55rem;
+      background: #004963;
+      color: #FFFFFF;
+      padding: 0.85rem 1rem;
+      border-radius: 12px;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      font-size: 0.95rem;
+      text-align: center;
+      transition: all 0.25s ease;
+      border: 1.5px solid #004963;
+      width: 100%;
+      box-shadow: 0 4px 14px rgba(0, 73, 99, 0.25);
+    }
+
+    .btn-seating-book:hover {
+      background: #0A0D12;
+      border-color: #0A0D12;
+      color: #FFFFFF;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(10, 13, 18, 0.35);
+    }
+
+    /* Comparison Matrix Table (004963, White, Black) */
+    .seating-matrix-card {
+      background: #FFFFFF;
+      border: 1.5px solid #D1E5ED;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0, 73, 99, 0.08);
+      margin-bottom: 3.5rem;
+    }
+
+    .seating-matrix-header {
+      background: linear-gradient(135deg, #004963 0%, #002D3D 100%);
+      color: #FFFFFF;
+      padding: 1.5rem 1.8rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .seating-matrix-header h3 {
+      color: #FFFFFF;
+      font-size: 1.35rem;
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+    }
+
+    .seating-matrix-header p {
+      color: #D1E5ED;
+      font-size: 0.88rem;
+    }
+
+    .seating-matrix-wrap {
+      overflow-x: auto;
+    }
+
+    .seating-matrix-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+    }
+
+    .seating-matrix-table th {
+      background: #0A0D12;
+      color: #FFFFFF;
+      padding: 1.1rem 1.2rem;
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.88rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      border-right: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .seating-matrix-table th.col-featured {
+      background: #004963;
+      color: #FFFFFF;
+      position: relative;
+    }
+
+    .seating-matrix-table td {
+      padding: 1rem 1.2rem;
+      border-bottom: 1px solid #E2E8F0;
+      border-right: 1px solid #E2E8F0;
+      font-size: 0.9rem;
+      color: #1E293B;
+    }
+
+    .seating-matrix-table tr:nth-child(even) {
+      background: #F8FAFC;
+    }
+
+    .seating-matrix-table tr:hover {
+      background: #F0F8FA;
+    }
+
+    .seating-matrix-table td.col-featured {
+      background: #F4F9FB;
+      font-weight: 700;
+      color: #004963;
+      border-left: 1.5px solid #004963;
+      border-right: 1.5px solid #004963;
+    }
+
+    .matrix-feature-name {
+      font-weight: 800;
+      color: #0A0D12;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    /* 6-Tile Amenities Grid */
+    .seating-amenities-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-bottom: 3rem;
+    }
+
+    .seating-amenity-tile {
+      background: #FFFFFF;
+      border: 1.5px solid #E2E8F0;
+      border-radius: 16px;
+      padding: 1.6rem;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: flex-start;
+      gap: 1.1rem;
+    }
+
+    .seating-amenity-tile:hover {
+      border-color: #004963;
+      transform: translateY(-4px);
+      box-shadow: 0 12px 28px rgba(0, 73, 99, 0.14);
+    }
+
+    .seating-tile-icon {
+      width: 50px;
+      height: 50px;
+      border-radius: 12px;
+      background: #004963;
+      color: #FFFFFF;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      box-shadow: 0 4px 12px rgba(0, 73, 99, 0.3);
+    }
+
+    .seating-tile-icon svg {
+      width: 26px;
+      height: 26px;
+      fill: currentColor;
+    }
+
+    .seating-tile-content h4 {
+      font-size: 1.1rem;
+      color: #0A0D12;
+      font-weight: 800;
+      margin-bottom: 0.35rem;
+    }
+
+    .seating-tile-content p {
+      font-size: 0.88rem;
+      color: #64748B;
+      line-height: 1.55;
+    }
+
+    /* Responsive Queries */
+    @media (max-width: 1100px) {
+      .seating-cards-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .seating-amenities-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .seating-cards-grid {
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+      }
+      .seating-amenities-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+      }
+      .seating-title {
+        font-size: clamp(1.45rem, 6vw, 1.85rem) !important;
+        margin-bottom: 0.5rem !important;
+      }
+      .seating-subtitle {
+        font-size: 0.88rem !important;
+        line-height: 1.55 !important;
+      }
+      .seating-filter-tabs {
+        gap: 0.4rem !important;
+        margin-bottom: 1.5rem !important;
+      }
+      .seating-filter-btn {
+        font-size: 0.8rem !important;
+        padding: 0.4rem 0.85rem !important;
+      }
+      .seating-card-media {
+        height: 175px !important;
+      }
+      .seating-card-body {
+        padding: 1.15rem 1rem !important;
+      }
+      .seating-matrix-card {
+        border-radius: 14px !important;
+        margin-bottom: 2rem !important;
+      }
+      .seating-matrix-header {
+        padding: 1rem 1rem !important;
+      }
+      .seating-matrix-header h3 {
+        font-size: 1.1rem !important;
+      }
+      .seating-matrix-wrap {
+        width: 100% !important;
+        overflow-x: auto !important;
+        -webkit-overflow-scrolling: touch !important;
+      }
+      .seating-matrix-table {
+        min-width: 620px !important;
+      }
+      .btn-reserve-highlight {
+        width: 100% !important;
+        justify-content: center !important;
+        white-space: normal !important;
+        padding: 0.8rem 1rem !important;
+        font-size: 0.92rem !important;
+        box-sizing: border-box !important;
+        text-align: center !important;
+      }
+      .lp-cta-action-bar {
+        padding: 1.5rem 1rem !important;
+        margin: 2rem 0 !important;
+      }
+      .lp-cta-action-bar h2 {
+        font-size: 1.35rem !important;
+      }
+      .lp-call-huge {
+        font-size: clamp(1.4rem, 6vw, 1.85rem) !important;
+        margin: 0.75rem 0 1rem !important;
+      }
+      .btn-banner-call {
+        width: 100% !important;
+        padding: 0.85rem 1rem !important;
+        font-size: 1rem !important;
+        box-sizing: border-box !important;
+      }
+      .lp-info-card {
+        padding: 1.25rem 1rem !important;
+      }
+      .lp-table {
+        min-width: 550px !important;
+      }
+    }
+
+    .btn-reserve-highlight {
+      background: linear-gradient(135deg, #004963 0%, #0082A6 100%);
+      color: #FFFFFF !important;
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.05rem;
+      font-weight: 900;
+      padding: 0.95rem 1.85rem;
+      border-radius: 9999px;
+      white-space: nowrap;
+      border: 2px solid #FFFFFF;
+      box-shadow: 0 8px 24px rgba(0, 73, 99, 0.45);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.65rem;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      text-decoration: none;
+    }
+
+    .btn-reserve-highlight:hover {
+      background: linear-gradient(135deg, #0A0D12 0%, #003649 100%) !important;
+      transform: translateY(-3px) scale(1.02);
+      box-shadow: 0 12px 30px rgba(0, 73, 99, 0.65) !important;
+      color: #FFFFFF !important;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Support Notification Bar -->
+  <div class="top-support-bar">
+    <div class="container">
+      <div class="top-bar-content">
+        <div class="top-bar-left">
+          <div class="top-bar-item">
+            <svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+            <span>Nationwide Intercity Bus Reservation &amp; Ticketing Concierge</span>
+          </div>
+          <div class="top-bar-item">
+            <svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
+            <span>Instant Seat Allocation &amp; Telephone Help: Open 24/7</span>
+          </div>
+        </div>
+        <div class="top-bar-right">
+          <svg width="15" height="15" fill="#67D4F8" viewBox="0 0 24 24"><path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+          <span>Toll-Free Booking Desk: <strong style="color: #FFFFFF; font-weight: 900; letter-spacing: 0.3px; text-shadow: 0 1px 3px rgba(0,0,0,0.5);">+1(888) 892-3463</strong></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container">
+      <div class="nav-wrapper">
+        <a href="index.html" class="brand-logo" aria-label="Trainhello Home">
+          <img src="images/logo.png" alt="Trainhello - Book • Travel • Relax | Bus Reservation & Tickets Online" width="200" height="66">
+        </a>
+
+        <div class="header-call-box">
+          <div class="header-support-info">
+            <span class="header-support-badge">
+              <span class="live-dot"></span>
+              <span>24/7 Live Desk</span>
+            </span>
+            <span class="header-support-label">Instant Seat Confirmation</span>
+          </div>
+          <a href="tel:+18888923463" class="btn-header-call btn-call-trigger" aria-label="Call bus reservation desk">
+            <span class="phone-icon">
+              <svg width="17" height="17" fill="currentColor" viewBox="0 0 24 24"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 00-1.01.24l-2.2 2.2a15.045 15.045 0 01-6.59-6.59l2.2-2.21a.96.96 0 00.25-1A11.36 11.36 0 018.5 4c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1 0 9.39 7.61 17 17 17 .55 0 1-.45 1-1v-3.5c0-.55-.45-1-.99-1.12z"/></svg>
+            </span>
+            <span>Call: +1(888) 892-3463</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="lp-hero">
+    <div class="container">
+      <div class="hero-grid">
+        <div class="hero-content">
+          <div class="lp-pill-badge">
+            <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+            <span>Live 24/7 Telephone Bus Booking Desk</span>
+          </div>
+          <h1 class="hero-title">
+            Bus Reservation Online – Cheap Bus Tickets &amp; Live Schedules
+          </h1>
+          <p class="hero-desc">
+            Reserve bus tickets online with ease. Compare intercity bus carriers, verify live schedules, find the lowest promotional fares, and complete your bus reservation quickly with 24/7 telephone concierge support.
+          </p>
+
+          <div class="hero-cta-box">
+            <div class="hero-cta-label">
+              <svg width="18" height="18" fill="var(--brand-orange)" viewBox="0 0 24 24"><path d="M7 2v11h3v9l7-12h-4l4-8z"/></svg>
+              <strong>Immediate Seat Confirmation &amp; Fare Quote:</strong>
+            </div>
+            <a href="tel:+18888923463" class="btn-hero-call btn-call-trigger">
+              <span class="phone-icon">
+                <svg width="22" height="22" fill="currentColor" viewBox="0 0 24 24"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 00-1.01.24l-2.2 2.2a15.045 15.045 0 01-6.59-6.59l2.2-2.21a.96.96 0 00.25-1A11.36 11.36 0 018.5 4c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1 0 9.39 7.61 17 17 17 .55 0 1-.45 1-1v-3.5c0-.55-.45-1-.99-1.12z"/></svg>
+              </span>
+              <span>CALL NOW: +1(888) 892-3463</span>
+            </a>
+            <div class="cta-subtext">
+              <span>
+                <svg width="14" height="14" fill="#10B981" viewBox="0 0 20 20"><circle cx="10" cy="10" r="8"/></svg>
+                Zero Queue Time: Under 20 Sec Connect
+              </span>
+              <span>
+                <svg width="14" height="14" fill="#10B981" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.01-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+                Instant E-Ticket Delivery via SMS &amp; Email
+              </span>
+            </div>
+          </div>
+
+          <div class="hero-trust-row">
+            <div class="trust-item">
+              <svg width="18" height="18" fill="currentColor" viewBox="0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+              <span>Instant Seat Allocation</span>
+            </div>
+            <div class="trust-item">
+              <svg width="18" height="18" fill="currentColor" viewBox="0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+              <span>Executive Recliners &amp; Sleepers</span>
+            </div>
+            <div class="trust-item">
+              <svg width="18" height="18" fill="currentColor" viewBox="0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+              <span>Last-Minute Departures</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hero Card Right -->
+        <div class="hero-card-column">
+          <div class="hero-card">
+            <div class="hero-card-header">
+              <h3>Live Bus Reservation Desk</h3>
+              <p>Instant phone booking for intercity express coach lines, senior tariffs &amp; rebooking support.</p>
+            </div>
+
+            <div style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: var(--radius-md); padding: 1.2rem; margin: 1.25rem 0; display: flex; flex-direction: column; gap: 0.75rem;">
+              <div style="display: flex; align-items: center; justify-content: space-between; font-size: 0.88rem; color: #E5E7EB; border-bottom: 1px dashed rgba(255,255,255,0.15); padding-bottom: 0.55rem;">
+                <span style="color: #94A3B8;">Live Agent Status</span>
+                <span style="color: #10B981; font-weight: 800; display: flex; align-items: center; gap: 0.35rem;">
+                  <span style="width: 8px; height: 8px; background: #10B981; border-radius: 50%; display: inline-block;"></span>
+                  Agents Active Now
+                </span>
+              </div>
+              <div style="display: flex; align-items: center; justify-content: space-between; font-size: 0.88rem; color: #E5E7EB; border-bottom: 1px dashed rgba(255,255,255,0.15); padding-bottom: 0.55rem;">
+                <span style="color: #CBD5E1; font-weight: 600;">Hold Time</span>
+                <span style="background: linear-gradient(135deg, #0082A6 0%, #004963 100%); color: #FFFFFF; font-weight: 900; font-size: 0.84rem; padding: 0.35rem 0.85rem; border-radius: 9999px; border: 1.5px solid #67D4F8; box-shadow: 0 0 14px rgba(103, 212, 248, 0.45); display: inline-flex; align-items: center; gap: 0.4rem; letter-spacing: 0.3px;">
+                  <span style="width: 7px; height: 7px; background: #67D4F8; border-radius: 50%; box-shadow: 0 0 8px #67D4F8; animation: pulse-green 1.5s infinite;"></span>
+                  ⚡ Under 20 Seconds
+                </span>
+              </div>
+              <div style="display: flex; align-items: center; justify-content: space-between; font-size: 0.88rem; color: #E5E7EB;">
+                <span style="color: #94A3B8;">E-Ticket Delivery</span>
+                <span style="color: #FFFFFF; font-weight: 800;">Instant To Phone &amp; Email</span>
+              </div>
+            </div>
+
+            <a href="tel:+18888923463" class="btn-hero-call btn-call-trigger" style="padding: 0.95rem; font-size: 1.1rem; box-shadow: 0 4px 18px rgba(0, 73, 99, 0.45);">
+              <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 00-1.01.24l-2.2 2.2a15.045 15.045 0 01-6.59-6.59l2.2-2.21a.96.96 0 00.25-1A11.36 11.36 0 018.5 4c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1 0 9.39 7.61 17 17 17 .55 0 1-.45 1-1v-3.5c0-.55-.45-1-.99-1.12z"/></svg>
+              <span>Call: +1(888) 892-3463</span>
+            </a>
+
+            <div class="agent-status-box" style="margin-top: 1rem; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 1rem;">
+              <div class="agent-info">
+                <div class="agent-avatars">
+                  <div class="agent-avatar">MR</div>
+                  <div class="agent-avatar">SC</div>
+                  <div class="agent-avatar">DL</div>
+                </div>
+                <div style="font-size: 0.85rem; color: #E5E7EB;">
+                  <strong>Bus Reservation Specialists</strong>
+                  <div style="font-size: 0.75rem; color: #67D4F8;">24/7 Telephone Booking Line</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Detailed Booking Information Section -->
+  <section class="section-padding">
+    <div class="container">
+      
+      <!-- Bus Seating Classes & Onboard Amenities (004963, White, Black Luxe Section) -->
+      <div class="seating-luxe-section" id="seating-classes">
+        <div class="seating-luxe-header">
+          <div class="seating-pill-badge">
+            <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M4 18v3h3v-3h10v3h3v-3h1c.55 0 1-.45 1-1V8c0-2.21-1.79-4-4-4H6C3.79 4 2 5.79 2 8v9c0 .55.45 1 1 1h1zm12-9c1.1 0 2 .9 2 2v3H6v-3c0-1.1.9-2 2-2h8z"/></svg>
+            2026 Fleet Comfort &amp; Technology Standards
+          </div>
+          <h2 class="seating-title">Bus Seating Classes &amp; Onboard Amenities</h2>
+          <p class="seating-subtitle">
+            Compare seating options, legroom, baggage allowance, and premium onboard entertainment amenities across top-tier North American intercity coach carriers. Speak to a live agent for guaranteed seat assignments.
+          </p>
+        </div>
+
+        <!-- Filter Navigation Pills -->
+        <div class="seating-filter-tabs">
+          <button type="button" class="seating-filter-btn active" data-filter="all">
+            <span>✨ All Seating Options (4)</span>
+          </button>
+          <button type="button" class="seating-filter-btn" data-filter="standard">
+            <span>Standard Express</span>
+          </button>
+          <button type="button" class="seating-filter-btn" data-filter="executive">
+            <span>Executive Recliner (VIP)</span>
+          </button>
+          <button type="button" class="seating-filter-btn" data-filter="sleeper">
+            <span>Overnight Lie-Flat Sleeper</span>
+          </button>
+          <button type="button" class="seating-filter-btn" data-filter="charter">
+            <span>Group Charter Coach</span>
+          </button>
+        </div>
+
+        <!-- 4-Tier Interactive Seating Cards Grid -->
+        <div class="seating-cards-grid">
+          
+          <!-- Card 1: Standard Express Coach -->
+          <div class="seating-card" data-category="standard">
+            <div class="seating-card-media">
+              <img src="images/standard-coach.jpg" alt="Standard Express Coach Bus Seating" loading="lazy">
+              <div class="seating-media-badge">
+                <svg width="12" height="12" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                Most Popular
+              </div>
+            </div>
+            <div class="seating-card-body">
+              <span style="font-size: 0.75rem; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; color: #004963; margin-bottom: 0.25rem;">Economy Express</span>
+              <h3 class="seating-card-title">Standard Express Coach</h3>
+              <p class="seating-card-desc">Modern high-back reclining seats designed for budget-conscious solo travelers and daily city hops.</p>
+
+              <!-- Legroom Meter in 004963 -->
+              <div class="seating-meter-box">
+                <div class="seating-meter-header">
+                  <span>Legroom &amp; Pitch</span>
+                  <span class="seating-meter-val">31" – 33"</span>
+                </div>
+                <div class="seating-meter-track">
+                  <div class="seating-meter-fill" style="width: 60%;"></div>
+                </div>
+              </div>
+
+              <!-- Features List -->
+              <div class="seating-features-list">
+                <div class="seating-feature-item">
+                  <div class="seating-check-icon">✓</div>
+                  <div><strong>Ergonomic Recline:</strong> Contoured seat back with adjustable headrest</div>
+                </div>
+                <div class="seating-feature-item">
+                  <div class="seating-check-icon">✓</div>
+                  <div><strong>Baggage:</strong> 1 Carry-on bag + 1 Checked bag undercarriage (up to 50 lbs)</div>
+                </div>
+                <div class="seating-feature-item">
+                  <div class="seating-check-icon">✓</div>
+                  <div><strong>Connectivity:</strong> Standard 4G Wi-Fi &amp; individual 110V AC electrical sockets</div>
+                </div>
+                <div class="seating-feature-item">
+                  <div class="seating-check-icon">✓</div>
+                  <div><strong>Facilities:</strong> Sanitized clean onboard chemical lavatory</div>
+                </div>
+              </div>
+
+              <div class="seating-card-footer">
+                <div class="seating-status-row">
+                  <span>Seat Allocation:</span>
+                  <strong>Instant Guaranteed</strong>
+                </div>
+                <a href="tel:+18888923463" class="btn-seating-book btn-call-trigger">
+                  <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 00-1.01.24l-2.2 2.2a15.045 15.045 0 01-6.59-6.59l2.2-2.21a.96.96 0 00.25-1A11.36 11.36 0 018.5 4c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1 0 9.39 7.61 17 17 17 .55 0 1-.45 1-1v-3.5c0-.55-.45-1-.99-1.12z"/></svg>
+                  <span>Book Standard • Call Desk</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 2: Executive Recliner Class (Featured VIP) -->
+          <div class="seating-card featured-card" data-category="executive">
+            <div class="seating-featured-badge">
+              ★ VIP FIRST CLASS • EXTRA LEGROOM
+            </div>
+            <div class="seating-card-media">
+              <img src="images/executive-coach.jpg" alt="Executive Recliner Luxury Bus Seating" loading="lazy">
+              <div class="seating-media-badge" style="background: rgba(0, 73, 99, 0.95);">
+                <svg width="12" height="12" fill="currentColor" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                Top Rated Comfort
+              </div>
+            </div>
+            <div class="seating-card-body">
+              <span style="font-size: 0.75rem; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; color: #004963; margin-bottom: 0.25rem;">Executive Business</span>
+              <h3 class="seating-card-title">Executive Recliner Class</h3>
+              <p class="seating-card-desc">Premium 2+1 seating configuration with spacious handcrafted leather recliners and extendable footrests.</p>
+
+              <!-- Legroom Meter in 004963 -->
+              <div class="seating-meter-box">
+                <div class="seating-meter-header">
+                  <span>Legroom &amp; Pitch</span>
+                  <span class="seating-meter-val">38" – 42"</span>
+                </div>
+                <div class="seating-meter-track">
+                  <div class="seating-meter-fill" style="width: 85%;"></div>
+                </div>
+              </div>
+
+              <!-- Features List -->
+              <div class="seating-features-list">
+                <div class="seating-feature-item">
+                  <div class="seating-check-icon">✓</div>
+                  <div><strong>Plush Leather Recline:</strong> Deep 45° angle tilt with calf support</div>
+                </div>
+                <div class="seating-feature-item">
+                  <div class="seating-check-icon">✓</div>
+                  <div><strong>Generous Luggage:</strong> 1 Carry-on + 2 Checked Bags (50 lbs each) included</div>
+                </div>
+                <div class="seating-feature-item">
+                  <div class="seating-check-icon">✓</div>
+                  <div><strong>High-Speed Tech:</strong> Ultra-fast 5G Wi-Fi with dual USB-C &amp; AC at each seat</div>
+                </div>
+                <div class="seating-feature-item">
+                  <div class="seating-check-icon">✓</div>
+                  <div><strong>VIP Perks:</strong> Priority terminal boarding + free schedule exchanges</div>
+                </div>
+              </div>
+
+              <div class="seating-card-footer">
+                <div class="seating-status-row">
+                  <span>Availability:</span>
+                  <strong>Limited 18 Seats / Bus</strong>
+                </div>
+                <a href="tel:+18888923463" class="btn-seating-book btn-call-trigger" style="background: #004963; border-color: #004963;">
+                  <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 00-1.01.24l-2.2 2.2a15.045 15.045 0 01-6.59-6.59l2.2-2.21a.96.96 0 00.25-1A11.36 11.36 0 018.5 4c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1 0 9.39 7.61 17 17 17 .55 0 1-.45 1-1v-3.5c0-.55-.45-1-.99-1.12z"/></svg>
+                  <span>Book Executive Recliner • Call</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 3: Overnight Sleeper Bus -->
+          <div class="seating-card" data-category="sleeper">
+            <div class="seating-card-media">
+              <img src="images/sleeper-bus.jpg" alt="Overnight Sleeper Bus Lie Flat Bunks" loading="lazy">
+              <div class="seating-media-badge">
+                <svg width="12" height="12" fill="currentColor" viewBox="0 0 24 24"><path d="M20 9.557V3h-2v2H6V3H4v6.557C2.81 10.239 2 11.517 2 13v6h2v2h2v-2h12v2h2v-2h2v-6c0-1.483-.81-2.761-2-3.443zM4 13c0-.552.448-1 1-1h14c.552 0 1 .448 1 1v4H4v-4z"/></svg>
+                Hotel On Wheels
+              </div>
+            </div>
+            <div class="seating-card-body">
+              <span style="font-size: 0.75rem; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; color: #004963; margin-bottom: 0.25rem;">Overnight Lie-Flat</span>
+              <h3 class="seating-card-title">Overnight Sleeper Bus</h3>
+              <p class="seating-card-desc">Individual horizontal lie-flat pods equipped with memory foam mattresses, privacy curtains, and bedding.</p>
+
+              <!-- Legroom Meter in 004963 -->
+              <div class="seating-meter-box">
+                <div class="seating-meter-header">
+                  <span>Horizontal Lie-Flat Bed</span>
+                  <span class="seating-meter-val">74" (Full 180°)</span>
+                </div>
+                <div class="seating-meter-track">
+                  <div class="seating-meter-fill" style="width: 100%;"></div>
+                </div>
+              </div>
+
+              <!-- Features List -->
+              <div class="seating-features-list">
+                <div class="seating-feature-item">
+                  <div class="seating-check-icon">✓</div>
+                  <div><strong>Lie-Flat Bedding:</strong> Sanitized duvet, plush pillow, &amp; memory mattress</div>
+                </div>
+                <div class="seating-feature-item">
+                  <div class="seating-check-icon">✓</div>
+                  <div><strong>Privacy Pod:</strong> Full blackout magnetic curtain for peaceful sleep</div>
+                </div>
+                <div class="seating-feature-item">
+                  <div class="seating-check-icon">✓</div>
+                  <div><strong>Personal Tech:</strong> Ambient dimmer reading lamp, USB ports, &amp; storage cubby</div>
+                </div>
+                <div class="seating-feature-item">
+                  <div class="seating-check-icon">✓</div>
+                  <div><strong>Zero Hotel Cost:</strong> Sleep on board and wake up rested at your destination</div>
+                </div>
+              </div>
+
+              <div class="seating-card-footer">
+                <div class="seating-status-row">
+                  <span>Popular Routes:</span>
+                  <strong>NYC, LA, SF, Vegas</strong>
+                </div>
+                <a href="tel:+18888923463" class="btn-seating-book btn-call-trigger">
+                  <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 00-1.01.24l-2.2 2.2a15.045 15.045 0 01-6.59-6.59l2.2-2.21a.96.96 0 00.25-1A11.36 11.36 0 018.5 4c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1 0 9.39 7.61 17 17 17 .55 0 1-.45 1-1v-3.5c0-.55-.45-1-.99-1.12z"/></svg>
+                  <span>Reserve Sleeper Pod • Call</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 4: Group & Charter Coach -->
+          <div class="seating-card" data-category="charter">
+            <div class="seating-card-media">
+              <img src="images/hero-bus.jpg" alt="Group Charter Coach Motorcoach Rental" loading="lazy">
+              <div class="seating-media-badge">
+                <svg width="12" height="12" fill="currentColor" viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
+                Private Groups
+              </div>
+            </div>
+            <div class="seating-card-body">
+              <span style="font-size: 0.75rem; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; color: #004963; margin-bottom: 0.25rem;">Private Fleet Charter</span>
+              <h3 class="seating-card-title">Group &amp; Charter Coach</h3>
+              <p class="seating-card-desc">Exclusive private motorcoaches (24–56 seats) tailored for sports teams, corporate events, school trips, and tour groups.</p>
+
+              <!-- Legroom Meter in 004963 -->
+              <div class="seating-meter-box">
+                <div class="seating-meter-header">
+                  <span>Custom Seating &amp; Cargo</span>
+                  <span class="seating-meter-val">24 to 56 Pax</span>
+                </div>
+                <div class="seating-meter-track">
+                  <div class="seating-meter-fill" style="width: 95%;"></div>
+                </div>
+              </div>
+
+              <!-- Features List -->
+              <div class="seating-features-list">
+                <div class="seating-feature-item">
+                  <div class="seating-check-icon">✓</div>
+                  <div><strong>Exclusive Use:</strong> Entire coach reserved solely for your private party</div>
+                </div>
+                <div class="seating-feature-item">
+                  <div class="seating-check-icon">✓</div>
+                  <div><strong>Tailored Route:</strong> Customized departure times, pick-up points &amp; itinerary</div>
+                </div>
+                <div class="seating-feature-item">
+                  <div class="seating-check-icon">✓</div>
+                  <div><strong>Under-Floor Hold:</strong> Massive cargo volume for all team baggage &amp; gear</div>
+                </div>
+                <div class="seating-feature-item">
+                  <div class="seating-check-icon">✓</div>
+                  <div><strong>Entertainment:</strong> Central PA mic system, video monitors &amp; auxiliary audio</div>
+                </div>
+              </div>
+
+              <div class="seating-card-footer">
+                <div class="seating-status-row">
+                  <span>Charter Quotes:</span>
+                  <strong>Instant Phone Estimate</strong>
+                </div>
+                <a href="tel:+18888923463" class="btn-seating-book btn-call-trigger">
+                  <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 00-1.01.24l-2.2 2.2a15.045 15.045 0 01-6.59-6.59l2.2-2.21a.96.96 0 00.25-1A11.36 11.36 0 018.5 4c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1 0 9.39 7.61 17 17 17 .55 0 1-.45 1-1v-3.5c0-.55-.45-1-.99-1.12z"/></svg>
+                  <span>Request Group Quote • Call</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Comprehensive Side-by-Side Comparison Matrix Table (#004963, White, Black) -->
+        <div class="seating-matrix-card">
+          <div class="seating-matrix-header">
+            <div>
+              <h3>
+                <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M3 3v18h18V3H3zm8 16H5v-6h6v6zm0-8H5V5h6v6zm8 8h-6v-6h6v6zm0-8h-6V5h6v6z"/></svg>
+                Detailed Bus Seating &amp; Class Feature Matrix
+              </h3>
+              <p>Transparent side-by-side comparison of seating pitch, baggage, electrical outlets, and booking flexibility.</p>
+            </div>
+            <div style="background: rgba(255, 255, 255, 0.15); border: 1px solid rgba(255, 255, 255, 0.3); border-radius: 9999px; padding: 0.4rem 1rem; font-size: 0.8rem; font-weight: 800; color: #FFFFFF;">
+              ✓ 100% Guaranteed Seat Assignments
+            </div>
+          </div>
+          <div class="seating-matrix-wrap">
+            <table class="seating-matrix-table">
+              <thead>
+                <tr>
+                  <th style="width: 25%;">Feature &amp; Amenity</th>
+                  <th style="width: 18%;">Standard Express</th>
+                  <th style="width: 20%;" class="col-featured">★ Executive Recliner</th>
+                  <th style="width: 19%;">Overnight Sleeper</th>
+                  <th style="width: 18%;">Group Charter</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <div class="matrix-feature-name">
+                      <svg width="18" height="18" fill="#004963" viewBox="0 0 24 24"><path d="M4 18v3h3v-3h10v3h3v-3h1c.55 0 1-.45 1-1V8c0-2.21-1.79-4-4-4H6C3.79 4 2 5.79 2 8v9c0 .55.45 1 1 1h1zm12-9c1.1 0 2 .9 2 2v3H6v-3c0-1.1.9-2 2-2h8z"/></svg>
+                      Seat Pitch &amp; Legroom
+                    </div>
+                  </td>
+                  <td>31" – 33" Pitch (Standard Recline)</td>
+                  <td class="col-featured"><strong>38" – 42" Pitch + Calf Rests</strong></td>
+                  <td>74" Full Lie-Flat Bed (180°)</td>
+                  <td>Spacious 24–56 Pax Layout</td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="matrix-feature-name">
+                      <svg width="18" height="18" fill="#004963" viewBox="0 0 24 24"><path d="M20 6h-4V4c0-1.11-.89-2-2-2h-4c-1.11 0-2 .89-2 2v2H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-6 0h-4V4h4v2z"/></svg>
+                      Included Baggage
+                    </div>
+                  </td>
+                  <td>1 Carry-on + 1 Checked (50 lbs)</td>
+                  <td class="col-featured"><strong>1 Carry-on + 2 Checked Bags</strong></td>
+                  <td>1 Personal + 2 Checked Bags</td>
+                  <td>Full Undercarriage Storage</td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="matrix-feature-name">
+                      <svg width="18" height="18" fill="#004963" viewBox="0 0 24 24"><path d="M12 4C7.31 4 3.07 5.9 0 8.98L12 21 24 8.98A16.88 16.88 0 0012 4zm0 3c3.71 0 7.08 1.48 9.56 3.89L12 19.46 2.44 10.89A13.9 13.9 0 0112 7z"/></svg>
+                      Onboard Wi-Fi &amp; Internet
+                    </div>
+                  </td>
+                  <td>Free Standard 4G Wi-Fi</td>
+                  <td class="col-featured"><strong>High-Speed 5G Streaming Wi-Fi</strong></td>
+                  <td>Fast Wi-Fi for Sleep &amp; Browse</td>
+                  <td>Custom Router Options</td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="matrix-feature-name">
+                      <svg width="18" height="18" fill="#004963" viewBox="0 0 24 24"><path d="M7 2v11h3v9l7-12h-4l4-8z"/></svg>
+                      In-Seat Power Outlets
+                    </div>
+                  </td>
+                  <td>Standard 110V Outlet</td>
+                  <td class="col-featured"><strong>Dual 110V + Fast USB-C Ports</strong></td>
+                  <td>Individual Bedside Outlets</td>
+                  <td>Row Outlets &amp; Inverters</td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="matrix-feature-name">
+                      <svg width="18" height="18" fill="#004963" viewBox="0 0 24 24"><path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11z"/></svg>
+                      Date Change &amp; Flexibility
+                    </div>
+                  </td>
+                  <td>Standard Carrier Policy</td>
+                  <td class="col-featured"><strong>Priority Flexible Changes</strong></td>
+                  <td>24-Hour Notice Exchange</td>
+                  <td>Custom Group Schedule</td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="matrix-feature-name">
+                      <svg width="18" height="18" fill="#004963" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 16h-2v-2h2v2zm0-4h-2V7h2v7z"/></svg>
+                      Boarding Priority
+                    </div>
+                  </td>
+                  <td>Standard General Boarding</td>
+                  <td class="col-featured"><strong>Zone 1 Priority Boarding</strong></td>
+                  <td>Reserved Bunk Allocation</td>
+                  <td>Private Immediate Boarding</td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="matrix-feature-name">
+                      <svg width="18" height="18" fill="#004963" viewBox="0 0 24 24"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 00-1.01.24l-2.2 2.2a15.045 15.045 0 01-6.59-6.59l2.2-2.21a.96.96 0 00.25-1A11.36 11.36 0 018.5 4c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1 0 9.39 7.61 17 17 17 .55 0 1-.45 1-1v-3.5c0-.55-.45-1-.99-1.12z"/></svg>
+                      Live Concierge Support
+                    </div>
+                  </td>
+                  <td><a href="tel:+18888923463" style="color: #004963; font-weight: 800;">📞 Call Desk</a></td>
+                  <td class="col-featured"><a href="tel:+18888923463" style="color: #004963; font-weight: 900;">📞 VIP Priority Desk</a></td>
+                  <td><a href="tel:+18888923463" style="color: #004963; font-weight: 800;">📞 Call Desk</a></td>
+                  <td><a href="tel:+18888923463" style="color: #004963; font-weight: 800;">📞 Charter Hotline</a></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- 6-Tile Onboard Amenities Grid (#004963, White, Black Theme) -->
+        <div style="margin-bottom: 2rem;">
+          <h3 style="font-size: 1.6rem; color: #004963; font-weight: 900; margin-bottom: 0.5rem; text-align: center;">
+            Everyday Onboard Amenities Across All Motorcoaches
+          </h3>
+          <p style="text-align: center; color: #64748B; font-size: 0.95rem; max-width: 680px; margin: 0 auto 2rem;">
+            Whether you are commuting between metropolitan hubs or crossing the continent, modern coach buses are engineered with cutting-edge passenger convenience in mind.
+          </p>
+
+          <div class="seating-amenities-grid">
+            
+            <div class="seating-amenity-tile">
+              <div class="seating-tile-icon">
+                <svg viewBox="0 0 24 24"><path d="M12 4C7.31 4 3.07 5.9 0 8.98L12 21 24 8.98A16.88 16.88 0 0012 4zm0 3c3.71 0 7.08 1.48 9.56 3.89L12 19.46 2.44 10.89A13.9 13.9 0 0112 7z"/></svg>
+              </div>
+              <div class="seating-tile-content">
+                <h4>Free High-Speed Wi-Fi</h4>
+                <p>Stay seamlessly connected while traveling. Stream your favorite podcasts, reply to work emails, or message loved ones on the move.</p>
+              </div>
+            </div>
+
+            <div class="seating-amenity-tile">
+              <div class="seating-tile-icon">
+                <svg viewBox="0 0 24 24"><path d="M7 2v11h3v9l7-12h-4l4-8z"/></svg>
+              </div>
+              <div class="seating-tile-content">
+                <h4>In-Seat 110V &amp; USB Power</h4>
+                <p>Never worry about a dead battery. Every passenger seat or pod is equipped with individual AC plugs and USB outlets for laptops and phones.</p>
+              </div>
+            </div>
+
+            <div class="seating-amenity-tile">
+              <div class="seating-tile-icon">
+                <svg viewBox="0 0 24 24"><path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96z"/></svg>
+              </div>
+              <div class="seating-tile-content">
+                <h4>Advanced Climate Control</h4>
+                <p>Enjoy customized personal air vents and hospital-grade HEPA air filtration systems circulating fresh, purified airflow continuously.</p>
+              </div>
+            </div>
+
+            <div class="seating-amenity-tile">
+              <div class="seating-tile-icon">
+                <svg viewBox="0 0 24 24"><path d="M12 2c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2zm9 7h-6v13h-2v-6h-2v6H9V9H3V7h18v2z"/></svg>
+              </div>
+              <div class="seating-tile-content">
+                <h4>Sanitized Clean Lavatories</h4>
+                <p>Fully equipped rear onboard restrooms with running water, soap, hand sanitizer, and touchless trash receptacles cleaned at each depot.</p>
+              </div>
+            </div>
+
+            <div class="seating-amenity-tile">
+              <div class="seating-tile-icon">
+                <svg viewBox="0 0 24 24"><path d="M20 6h-4V4c0-1.11-.89-2-2-2h-4c-1.11 0-2 .89-2 2v2H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-6 0h-4V4h4v2z"/></svg>
+              </div>
+              <div class="seating-tile-content">
+                <h4>Generous Luggage Hold</h4>
+                <p>Secure weather-sealed lower luggage bays accommodating large suitcases, musical instruments, and sports equipment up to 50 lbs.</p>
+              </div>
+            </div>
+
+            <div class="seating-amenity-tile">
+              <div class="seating-tile-icon">
+                <svg viewBox="0 0 24 24"><path d="M12 2a2 2 0 100 4 2 2 0 000-4zm-1 7H8v6h2v5h2v-5h2V9h-3zm8.5 7h-2.22l-1.35-3.37A2.003 2.003 0 0015.06 11H13v2h2.06l1.2 3H14v2h4.5c.83 0 1.5-.67 1.5-1.5s-.67-1.5-1.5-1.5z"/></svg>
+              </div>
+              <div class="seating-tile-content">
+                <h4>ADA Accessibility &amp; Lifts</h4>
+                <p>Hydraulic wheelchair lifts, designated priority seating bays with secure anchor points, and trained personnel assisting with boarding.</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Pro Tip Box in 004963 styling -->
+        <div style="background: #F4F9FB; border-left: 5px solid #004963; border-radius: 12px; padding: 1.4rem 1.6rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; box-shadow: 0 4px 16px rgba(0, 73, 99, 0.08);">
+          <div style="display: flex; align-items: flex-start; gap: 1rem; max-width: 780px;">
+            <div style="width: 38px; height: 38px; border-radius: 50%; background: #004963; color: #FFFFFF; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-weight: 900; font-size: 1.1rem;">
+              💡
+            </div>
+            <div>
+              <h4 style="font-size: 1.05rem; color: #004963; font-weight: 800; margin-bottom: 0.25rem;">Pro Traveler Seating Tip</h4>
+              <p style="font-size: 0.88rem; color: #334155; line-height: 1.55; margin: 0;">
+                Window seats provide scenic route viewing and comfortable headrest leaning, while aisle seats provide immediate access to restrooms and extra stretching room. For customized seat selections and group seating together, call our 24/7 reservation agents at <strong>+1(888) 892-3463</strong>.
+              </p>
+            </div>
+          </div>
+          <a href="tel:+18888923463" class="btn-call-trigger btn-reserve-highlight">
+            <span style="width: 32px; height: 32px; background: rgba(255, 255, 255, 0.22); border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-size: 1.05rem; box-shadow: 0 2px 8px rgba(0,0,0,0.2);">📞</span>
+            <span>Reserve My Seat &bull; 24/7 Call</span>
+          </a>
+        </div>
+
+      </div>
+
+      <!-- Luggage, Boarding & Passenger Assistance -->
+      <div class="lp-info-card">
+        <div class="lp-info-title">
+          <svg width="24" height="24" fill="var(--brand-orange)" viewBox="0 0 24 24"><path d="M20 6h-4V4c0-1.11-.89-2-2-2h-4c-1.11 0-2 .89-2 2v2H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-6 0h-4V4h4v2z"/></svg>
+          Baggage Policies &amp; Terminal Check-In Guidelines
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; margin-top: 1rem;">
+          <div>
+            <h4 style="font-size: 1.05rem; color: var(--brand-navy); margin-bottom: 0.5rem;">Carry-On Luggage</h4>
+            <p style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.55;">One small bag or backpack (under 25 lbs) is permitted inside the passenger cabin. Must fit in the overhead storage bin or underneath the seat in front of you.</p>
+          </div>
+          <div>
+            <h4 style="font-size: 1.05rem; color: var(--brand-navy); margin-bottom: 0.5rem;">Checked Undercarriage Bags</h4>
+            <p style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.55;">Most routes include 1 to 2 checked bags (up to 50 lbs / 23 kg each). Checked bags are tagged and safely loaded into the bus lower luggage bays by the driver.</p>
+          </div>
+          <div>
+            <h4 style="font-size: 1.05rem; color: var(--brand-navy); margin-bottom: 0.5rem;">Boarding With Phone E-Ticket</h4>
+            <p style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.55;">No printer required! Show your scannable digital boarding pass barcode and a valid government photo ID to the driver upon boarding at the terminal bay.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Huge CTA Banner -->
+      <div class="lp-cta-action-bar">
+        <h2 style="font-size: 2rem; color: #FFFFFF; margin-bottom: 0.5rem;">Ready to Book Your Bus Tickets?</h2>
+        <p style="font-size: 1.05rem; color: #CBD5E1; max-width: 650px; margin: 0 auto;">Speak with an agent now to check real-time seat availability, lock in promotional fares, and receive your tickets instantly.</p>
+        <div class="lp-call-huge">+1(888) 892-3463</div>
+        <a href="tel:+18888923463" class="btn-banner-call btn-call-trigger" style="display: inline-flex; width: auto; padding: 1.1rem 2.8rem;">
+          <svg width="22" height="22" fill="currentColor" viewBox="0 0 24 24"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 00-1.01.24l-2.2 2.2a15.045 15.045 0 01-6.59-6.59l2.2-2.21a.96.96 0 00.25-1A11.36 11.36 0 018.5 4c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1 0 9.39 7.61 17 17 17 .55 0 1-.45 1-1v-3.5c0-.55-.45-1-.99-1.12z"/></svg>
+          <span>Call To Reserve Now</span>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="brand-logo" style="margin-bottom: 1.25rem;">
+            <img src="images/logo-light.png" alt="Trainhello - Book • Travel • Relax" width="190" height="63">
+          </a>
+          <p>Your dedicated telephone concierge for intercity bus reservations, cheap bus tickets online, executive coaches, and rebooking assistance.</p>
+          <div style="font-size: 0.85rem; color: #67D4F8; font-weight: 700;">
+            🕒 24 Hours / 7 Days a Week Live Booking Desk
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Popular Bus Routes</h4>
+          <ul class="footer-links">
+            <li><a href="routes.html">New York to Boston Bus</a></li>
+            <li><a href="routes.html">Toronto to Montreal Bus</a></li>
+            <li><a href="routes.html">Los Angeles to Las Vegas Bus</a></li>
+            <li><a href="routes.html">Washington DC to New York Bus</a></li>
+            <li><a href="routes.html">Dallas to Houston Bus Express</a></li>
+            <li><a href="routes.html">Vancouver to Seattle Bus</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Navigation &amp; Support</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="booking.html">Bus Booking Desk</a></li>
+            <li><a href="routes.html">Bus Routes &amp; Schedules</a></li>
+            <li><a href="services.html">Classes &amp; Amenities</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact Phone Desk</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Instant Phone Booking</h4>
+          <div class="footer-call-card">
+            <h5>Speak to a Bus Agent Now</h5>
+            <p style="font-size: 0.8rem; color: #CBD5E1;">Call toll-free for immediate bus reservation assistance.</p>
+            <a href="tel:+18888923463" class="btn-footer-call btn-call-trigger">
+              <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 00-1.01.24l-2.2 2.2a15.045 15.045 0 01-6.59-6.59l2.2-2.21a.96.96 0 00.25-1A11.36 11.36 0 018.5 4c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1 0 9.39 7.61 17 17 17 .55 0 1-.45 1-1v-3.5c0-.55-.45-1-.99-1.12z"/></svg>
+              <span>+1(888) 892-3463</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 Trainhello. All rights reserved.</p>
+        <div class="footer-legal-links">
+          <a href="privacy.html">Privacy Policy</a>
+          <a href="terms.html">Terms of Service</a>
+          <a href="disclaimer.html">Disclaimer</a>
+          <a href="contact.html">Contact Us</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Sticky Bottom Call Bar -->
+  <div class="sticky-call-bar">
+    <div class="sticky-call-content">
+      <div class="sticky-call-left">
+        <div class="pulse-dot"></div>
+        <div>
+          <div class="sticky-call-title">Bus Ticket Reservation Desk (24/7 Live)</div>
+          <div class="sticky-call-subtitle">Speak with an agent now for instant seat confirmation &amp; e-tickets</div>
+        </div>
+      </div>
+      <a href="tel:+18888923463" class="btn-sticky-call btn-call-trigger">
+        <span class="phone-icon">
+          <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 00-1.01.24l-2.2 2.2a15.045 15.045 0 01-6.59-6.59l2.2-2.21a.96.96 0 00.25-1A11.36 11.36 0 018.5 4c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1 0 9.39 7.61 17 17 17 .55 0 1-.45 1-1v-3.5c0-.55-.45-1-.99-1.12z"/></svg>
+        </span>
+        <span>Call Now: +1(888) 892-3463</span>
+      </a>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+  <script>
+    // Bus Seating Classes Interactive Tab Filter
+    document.addEventListener('DOMContentLoaded', function() {
+      const filterBtns = document.querySelectorAll('.seating-filter-btn');
+      const seatingCards = document.querySelectorAll('.seating-card');
+
+      filterBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+          filterBtns.forEach(b => b.classList.remove('active'));
+          this.classList.add('active');
+
+          const filter = this.getAttribute('data-filter');
+
+          seatingCards.forEach(card => {
+            const category = card.getAttribute('data-category');
+            if (filter === 'all' || category === filter) {
+              card.classList.remove('hidden');
+              card.style.animation = 'fadeIn 0.35s ease';
+            } else {
+              card.classList.add('hidden');
+            }
+          });
+        });
+      });
+    });
+  </script>
+</body>
+</html>
