@@ -1,0 +1,34 @@
+[[redirects]]
+  from = "/"
+  to = "/new-greybus.html"
+  status = 200
+
+[[redirects]]
+  from = "/index.html"
+  to = "/new-greybus.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/New-railhelp"
+  to = "/new-greybus.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/New-railhelp.html"
+  to = "/new-greybus.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/*.html"
+  to = "/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/*"
+  to = "/:splat.html"
+  status = 200
+

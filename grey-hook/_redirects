@@ -1,0 +1,6 @@
+/                    /new-greybus.html  200
+/index.html          /new-greybus.html  301!
+/New-railhelp        /new-greybus.html  301!
+/New-railhelp.html   /new-greybus.html  301!
+/*.html              /:splat            301!
+

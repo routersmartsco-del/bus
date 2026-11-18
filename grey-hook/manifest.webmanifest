@@ -1,0 +1,21 @@
+{
+  "name": "Trainhello - Cheap Bus Tickets & Express Coach Deals",
+  "short_name": "Trainhello",
+  "start_url": "new-greybus.html",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#003882",
+  "description": "Book cheap bus tickets, express coach travel, and intercity buses nationwide with Trainhello. 24/7 phone support & low fares at +1(888) 892-3463.",
+  "icons": [
+    {
+      "src": "favicon.ico",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "logo/logomain.png",
+      "sizes": "192x192 512x512",
+      "type": "image/png"
+    }
+  ]
+}
