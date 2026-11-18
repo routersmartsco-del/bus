@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none">
+  <!-- Soft speed blur lines in silver/white -->
+  <path d="M10 32 L35 32" stroke="#CBD5E1" stroke-width="2.5" stroke-linecap="round" stroke-dasharray="4 4"/>
+  <path d="M5 50 L25 50" stroke="#CBD5E1" stroke-width="3" stroke-linecap="round" stroke-dasharray="6 4"/>
+  <path d="M12 68 L32 68" stroke="#CBD5E1" stroke-width="2.5" stroke-linecap="round" stroke-dasharray="4 4"/>
+  
+  <!-- Bus Body -->
+  <g transform="translate(15, 20)">
+    <!-- Main Shell -->
+    <path d="M10 48 L65 48 C68 48 70 45 70 40 L69 15 C69 10 65 8 58 8 L18 8 C12 8 8 11 7 16 L5 38 C5 44 7 48 10 48 Z" 
+          fill="#003882" stroke="#FFFFFF" stroke-width="2"/>
+    
+    <!-- Roof Cap in Silver -->
+    <path d="M18 8 L58 8 C62 8 66 9 68 12 L8 12 C10 9 14 8 18 8 Z" fill="#E2E8F0"/>
+    
+    <!-- Panoramic Windows in Light Cyan / Glass -->
+    <path d="M10 16 L65 14 C67 14 68 16 68 19 L67 26 C67 28 65 29 63 29 L9 29 C7 29 6 27 7 24 L8 18 C8 17 9 16 10 16 Z" 
+          fill="#38BDF8"/>
+    <!-- Window Dividers -->
+    <line x1="22" y1="15" x2="22" y2="29" stroke="#002244" stroke-width="1.5"/>
+    <line x1="36" y1="15" x2="36" y2="29" stroke="#002244" stroke-width="1.5"/>
+    <line x1="50" y1="15" x2="50" y2="29" stroke="#002244" stroke-width="1.5"/>
+    
+    <!-- Silver Swoosh Stripe -->
+    <path d="M7 34 C25 34 45 32 68 28 L68 31 C45 35 25 37 7 37 Z" fill="#CBD5E1"/>
+    
+    <!-- Headlight -->
+    <ellipse cx="68" cy="38" rx="2.5" ry="4" fill="#FFFFFF"/>
+    
+    <!-- Wheels -->
+    <g transform="translate(20, 48)">
+      <circle cx="0" cy="0" r="7" fill="#0F172A" stroke="#64748B" stroke-width="1.5"/>
+      <circle cx="0" cy="0" r="3.5" fill="#CBD5E1"/>
+    </g>
+    <g transform="translate(56, 48)">
+      <circle cx="0" cy="0" r="7" fill="#0F172A" stroke="#64748B" stroke-width="1.5"/>
+      <circle cx="0" cy="0" r="3.5" fill="#CBD5E1"/>
+    </g>
+  </g>
+</svg>

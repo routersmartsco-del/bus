@@ -1,0 +1,201 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 540" fill="none">
+  <defs>
+    <!-- Strong Blue Metallic Body -->
+    <linearGradient id="busBlue" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0047AB"/>
+      <stop offset="40%" stop-color="#003882"/>
+      <stop offset="85%" stop-color="#002244"/>
+      <stop offset="100%" stop-color="#00172e"/>
+    </linearGradient>
+
+    <!-- Premium Silver / Chrome Accent -->
+    <linearGradient id="silverChrome" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="25%" stop-color="#E2E8F0"/>
+      <stop offset="50%" stop-color="#CBD5E1"/>
+      <stop offset="75%" stop-color="#F8FAFC"/>
+      <stop offset="100%" stop-color="#94A3B8"/>
+    </linearGradient>
+
+    <!-- Glass Tint Gradient -->
+    <linearGradient id="glassTint" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#38BDF8" stop-opacity="0.9"/>
+      <stop offset="30%" stop-color="#0284C7" stop-opacity="0.95"/>
+      <stop offset="75%" stop-color="#0369A1"/>
+      <stop offset="100%" stop-color="#075985"/>
+    </linearGradient>
+
+    <!-- Wheel Rim Gradient -->
+    <radialGradient id="wheelRim" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="45%" stop-color="#CBD5E1"/>
+      <stop offset="70%" stop-color="#64748B"/>
+      <stop offset="100%" stop-color="#1E293B"/>
+    </radialGradient>
+
+    <!-- Road / Shadow -->
+    <linearGradient id="roadShadow" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="transparent"/>
+      <stop offset="20%" stop-color="rgba(0,34,68,0.45)"/>
+      <stop offset="80%" stop-color="rgba(0,34,68,0.45)"/>
+      <stop offset="100%" stop-color="transparent"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Ground Shadow -->
+  <ellipse cx="600" cy="475" rx="540" ry="30" fill="url(#roadShadow)" filter="blur(8px)"/>
+
+  <!-- Bus Main Group -->
+  <g id="express-coach-bus">
+    <!-- Main Body Shell -->
+    <path d="M120 420 
+             L1050 420 
+             C1090 420 1115 390 1110 330 
+             L1095 190 
+             C1090 150 1060 130 1010 130 
+             L240 130 
+             C180 130 140 160 125 220 
+             L110 350 
+             C105 395 110 420 120 420 Z" 
+          fill="url(#busBlue)" stroke="url(#silverChrome)" stroke-width="3"/>
+
+    <!-- Roof aerodynamic cap -->
+    <path d="M240 130 
+             L1010 130 
+             C1045 130 1070 142 1080 160 
+             L195 160 
+             C210 142 225 130 240 130 Z" 
+          fill="url(#silverChrome)"/>
+
+    <!-- AC Unit / Aerodynamic Roof Pod -->
+    <rect x="440" y="112" width="280" height="18" rx="8" fill="#E2E8F0" stroke="#94A3B8" stroke-width="1.5"/>
+    <line x1="480" y1="121" x2="680" y2="121" stroke="#64748B" stroke-width="2" stroke-dasharray="10 6"/>
+
+    <!-- Panoramic Window Ribbon -->
+    <path d="M138 230 
+             L1070 200 
+             C1085 200 1090 215 1088 235 
+             L1078 285 
+             C1075 298 1065 305 1050 305 
+             L140 305 
+             C128 305 122 295 124 280 
+             L130 245 
+             C132 235 135 230 138 230 Z" 
+          fill="url(#glassTint)" stroke="#0284C7" stroke-width="2"/>
+
+    <!-- Window Dividers & Pillars (Silver / Sleek) -->
+    <g stroke="#002244" stroke-width="4" opacity="0.7">
+      <line x1="230" y1="220" x2="230" y2="305"/>
+      <line x1="340" y1="215" x2="340" y2="305"/>
+      <line x1="450" y1="210" x2="450" y2="305"/>
+      <line x1="560" y1="208" x2="560" y2="305"/>
+      <line x1="670" y1="205" x2="670" y2="305"/>
+      <line x1="780" y1="203" x2="780" y2="305"/>
+      <line x1="890" y1="202" x2="890" y2="305"/>
+      <line x1="1000" y1="201" x2="1000" y2="305"/>
+    </g>
+
+    <!-- Window Glass Sheen / Reflection -->
+    <path d="M145 235 L1065 205 L1060 230 L140 260 Z" fill="#FFFFFF" opacity="0.28"/>
+
+    <!-- Premium Metallic Silver Dynamic Swoosh / Speed Ribbon -->
+    <path d="M120 340 
+             C280 340 450 330 650 315 
+             C820 302 960 270 1085 240 
+             L1082 258 
+             C950 290 810 322 640 335 
+             C440 350 270 358 120 355 Z" 
+          fill="url(#silverChrome)"/>
+          
+    <path d="M120 365 
+             C300 365 480 355 680 340 
+             C850 327 980 300 1080 275 
+             L1078 285 
+             C970 310 840 337 670 350 
+             C470 365 290 375 120 375 Z" 
+          fill="#E2E8F0" opacity="0.7"/>
+
+    <!-- Running express bus Silhouette Emblem on Side Panel -->
+    <g transform="translate(540, 355) scale(0.65)">
+      <path d="M0 25 C15 10 35 5 55 12 C70 5 95 0 115 10 C130 5 150 12 165 20 C185 15 210 22 225 35 C205 32 180 30 160 38 C140 35 120 38 105 45 C85 42 65 48 45 42 C30 50 15 45 0 25 Z" 
+            fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.5"/>
+      <text x="75" y="65" fill="#FFFFFF" font-family="sans-serif" font-weight="900" font-size="20" letter-spacing="4">EXPRESS COACH</text>
+    </g>
+
+    <!-- Luggage Compartment Doors (Silver Handles & Panel Gaps) -->
+    <g stroke="#00172e" stroke-width="2.5" opacity="0.6">
+      <rect x="300" y="375" width="140" height="40" rx="3" fill="none"/>
+      <rect x="460" y="375" width="140" height="40" rx="3" fill="none"/>
+      <rect x="620" y="375" width="140" height="40" rx="3" fill="none"/>
+      <rect x="780" y="375" width="140" height="40" rx="3" fill="none"/>
+      <!-- Handles -->
+      <line x1="360" y1="395" x2="380" y2="395" stroke="#CBD5E1" stroke-width="3" stroke-linecap="round"/>
+      <line x1="520" y1="395" x2="540" y2="395" stroke="#CBD5E1" stroke-width="3" stroke-linecap="round"/>
+      <line x1="680" y1="395" x2="700" y2="395" stroke="#CBD5E1" stroke-width="3" stroke-linecap="round"/>
+      <line x1="840" y1="395" x2="860" y2="395" stroke="#CBD5E1" stroke-width="3" stroke-linecap="round"/>
+    </g>
+
+    <!-- Front Windshield & Headlights (Front is right side) -->
+    <!-- Large Front Aero Mirror -->
+    <path d="M1040 180 C1070 170 1095 190 1090 215 L1080 230 Z" fill="#E2E8F0" stroke="#002244" stroke-width="2"/>
+    <!-- Headlight Assembly -->
+    <path d="M1085 365 C1105 365 1115 375 1110 395 L1075 395 Z" fill="#FFFFFF" filter="drop-shadow(0 0 8px #38BDF8)"/>
+    <ellipse cx="1095" cy="380" rx="10" ry="7" fill="#38BDF8"/>
+    <!-- LED DRL strip -->
+    <path d="M1070 360 L1105 362" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
+
+    <!-- Rear Tail Lights (Left side) -->
+    <rect x="112" y="365" width="6" height="35" rx="2" fill="#EF4444" filter="drop-shadow(0 0 6px #EF4444)"/>
+    <rect x="112" y="375" width="6" height="12" rx="1" fill="#F59E0B"/>
+
+    <!-- Wheel Wells -->
+    <!-- Rear Dual Wheel Well -->
+    <path d="M200 422 A65 65 0 0 1 330 422 Z" fill="#07172B"/>
+    <!-- Front Wheel Well -->
+    <path d="M910 422 A65 65 0 0 1 1040 422 Z" fill="#07172B"/>
+
+    <!-- Wheels -->
+    <!-- Rear Wheel -->
+    <g transform="translate(265, 422)">
+      <!-- Tire -->
+      <circle cx="0" cy="0" r="56" fill="#111827" stroke="#374151" stroke-width="4"/>
+      <!-- Rim Outer -->
+      <circle cx="0" cy="0" r="38" fill="url(#wheelRim)" stroke="#94A3B8" stroke-width="2"/>
+      <!-- Inner Hub -->
+      <circle cx="0" cy="0" r="20" fill="#0F172A"/>
+      <circle cx="0" cy="0" r="10" fill="#E2E8F0"/>
+      <!-- Lug Nuts -->
+      <circle cx="0" cy="-14" r="2.5" fill="#FFFFFF"/>
+      <circle cx="12" cy="-7" r="2.5" fill="#FFFFFF"/>
+      <circle cx="12" cy="7" r="2.5" fill="#FFFFFF"/>
+      <circle cx="0" cy="14" r="2.5" fill="#FFFFFF"/>
+      <circle cx="-12" cy="7" r="2.5" fill="#FFFFFF"/>
+      <circle cx="-12" cy="-7" r="2.5" fill="#FFFFFF"/>
+    </g>
+
+    <!-- Front Wheel -->
+    <g transform="translate(975, 422)">
+      <!-- Tire -->
+      <circle cx="0" cy="0" r="56" fill="#111827" stroke="#374151" stroke-width="4"/>
+      <!-- Rim Outer -->
+      <circle cx="0" cy="0" r="38" fill="url(#wheelRim)" stroke="#94A3B8" stroke-width="2"/>
+      <!-- Inner Hub -->
+      <circle cx="0" cy="0" r="20" fill="#0F172A"/>
+      <circle cx="0" cy="0" r="10" fill="#E2E8F0"/>
+      <!-- Lug Nuts -->
+      <circle cx="0" cy="-14" r="2.5" fill="#FFFFFF"/>
+      <circle cx="12" cy="-7" r="2.5" fill="#FFFFFF"/>
+      <circle cx="12" cy="7" r="2.5" fill="#FFFFFF"/>
+      <circle cx="0" cy="14" r="2.5" fill="#FFFFFF"/>
+      <circle cx="-12" cy="7" r="2.5" fill="#FFFFFF"/>
+      <circle cx="-12" cy="-7" r="2.5" fill="#FFFFFF"/>
+    </g>
+
+    <!-- Lower Chrome Trim Strip along skirts -->
+    <path d="M120 415 L195 415 M335 415 L905 415 M1045 415 L1065 415" stroke="url(#silverChrome)" stroke-width="3" stroke-linecap="round"/>
+
+    <!-- Destination Display Board above Windshield -->
+    <rect x="930" y="145" width="110" height="16" rx="2" fill="#000000" stroke="#475569" stroke-width="1"/>
+    <text x="985" y="157" fill="#38BDF8" font-family="monospace" font-weight="bold" font-size="10" text-anchor="middle" letter-spacing="1.5">EXPRESS</text>
+  </g>
+</svg>
