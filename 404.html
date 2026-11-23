@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Redirecting...</title>
+<script>
+  // Clean redirect for GitHub Pages
+  var path = window.location.pathname;
+  if (path.endsWith('/bus-reserv') || path.endsWith('/bus-reserv/')) {
+    window.location.replace(path.replace(/\/?$/, '.html'));
+  } else if (path.endsWith('/about') || path.endsWith('/about/')) {
+    window.location.replace(path.replace(/\/?$/, '.html'));
+  } else if (path.endsWith('/contact') || path.endsWith('/contact/')) {
+    window.location.replace(path.replace(/\/?$/, '.html'));
+  } else if (path.endsWith('/privacy') || path.endsWith('/privacy/')) {
+    window.location.replace(path.replace(/\/?$/, '.html'));
+  } else if (path.endsWith('/terms') || path.endsWith('/terms/')) {
+    window.location.replace(path.replace(/\/?$/, '.html'));
+  } else if (path.endsWith('/disclaimer') || path.endsWith('/disclaimer/')) {
+    window.location.replace(path.replace(/\/?$/, '.html'));
+  } else {
+    window.location.replace('/bus/');
+  }
+</script>
+</head>
+<body>
+<p>Redirecting to <a href="index.html">Home</a>...</p>
+</body>
+</html>
