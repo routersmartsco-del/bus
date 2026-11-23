@@ -5,7 +5,7 @@
 
 document.addEventListener("DOMContentLoaded", () => {
   // Global TFN constant
-  const DEFAULT_PHONE = "+1(888) 892-3463";
+  const DEFAULT_PHONE = "+1 (888) 892-3463";
   const DEFAULT_TEL = "tel:+18888923463";
 
   // Mobile Navigation Toggle
