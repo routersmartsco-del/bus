@@ -2338,3 +2338,32 @@ img, svg {
     padding: 0.65rem 0.75rem !important;
   }
 }
+
+/* ==========================================================================
+   Inner Pages Site Navigation
+   ========================================================================== */
+.site-nav {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.site-nav a {
+  color: var(--brand-navy, #0A0D12);
+  font-weight: 700;
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: color 0.2s ease;
+  white-space: nowrap;
+}
+
+.site-nav a:hover,
+.site-nav a.active {
+  color: var(--brand-blue, #0082A6);
+}
+
+@media (max-width: 1024px) {
+  .site-nav {
+    display: none;
+  }
+}
